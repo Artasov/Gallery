@@ -1,0 +1,24 @@
+{% extends 'Core/base.html' %}
+{% load static %}
+{% load Core_tags %}
+
+{% block title %}Галерея | Регистрация{% endblock %}
+
+{% block content %}
+    <div id="content" class="container d-none  flex-col-center flex-grow-1" data-bs-theme="dark">
+        <div class="row disable-tap-and-selection">
+            <div class="mx-auto" style="max-width: 400px">
+                <p class="text-success text-center fs-1"
+                   style="line-height: 2.1rem;">
+                    Мы отправили письмо для подтверждения регистрации на указанную почту.<br>
+                </p>
+                <p class="fs-4 text-center" style="color: #aaaaaa; line-height: 2.1rem;">
+                    Обычно письма приходят в течение нескольких секунд, однако
+                    это может занимать до 15 минут. Если у вас появились
+                    проблемы, свяжитесь с нами по контактным данным.
+                    <br>Вы можете закрыть эту страницу.
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

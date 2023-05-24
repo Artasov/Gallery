@@ -1,0 +1,51 @@
+{% extends 'Core/base.html' %}
+{% load static %}
+{% load Core_tags %}
+{% block title %}Галерея | Регистрация{% endblock %}
+
+{% block meta_keywords %}signup registration{% endblock %}
+{% block meta_description %}Sign Up{% endblock %}
+{% block meta_og_description %}Регистрация{% endblock %}
+{% block meta_twitter_description %}Sign Up{% endblock %}
+
+{% block content %}
+    <div id="content" class="container d-none  flex-col-center flex-grow-1"
+         data-bs-theme="dark" style="max-width: 400px;">
+        <div class="row disable-tap-and-selection">
+            <form class="px-3 py-2 text-center" method="post" action="{% url 'signup' %}">{% csrf_token %}
+                <span class="text-dark fw-5 fs-1">Регистрация</span>
+                {% if invalid %}
+                    <div><span class="text-danger">{{ invalid }}</span></div>
+                {% endif %}
+                <div class="mb-3 form__group fs-5 mt-4">
+                    <input type="text" class="form__field text-center fs-5"
+                           placeholder="Name" minlength="6" name="username" id='username' value="{{ username }}"/>
+                    <label for="username" class="form__label" style="width: 100%">Логин</label>
+                </div>
+                <div class="mb-3 form__group fs-5">
+                    <input type="email" class="form__field text-center fs-5"
+                           placeholder="Email" name="email" id='email' required value="{{ email }}"/>
+                    <label for="email" class="form__label" style="width: 100%">Почта*</label>
+                </div>
+                <div class="mb-3 form__group">
+                    <input type="password" class="form__field text-center fs-4 fw-7"
+                           placeholder="Password" minlength="6" name="password" id='password' required/>
+                    <label for="password" class="form__label"
+                           style="width: 100%">Пароль*</label>
+                </div>
+                <small class="form-text text-secondary fs-6 fw-6" style="opacity: 70%;">
+                    При регистрации вы соглашаетесь с
+                    <a href="{% url 'privacy_policy' %}"
+                       class="color-primary text-decoration-none">Политикой конфиденциальности</a> и
+                    <a href="{% url 'terms_and_conditions' %}"
+                       class="color-primary text-decoration-none">Пользовательским соглашением</a>
+                </small>
+
+                <div class="text-center pt-3 pb-1">
+                    <button type="submit" id="button"
+                            class="btn-submit fs-5 mt-3">Зарегистрироваться</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

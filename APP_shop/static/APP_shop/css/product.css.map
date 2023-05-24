@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,QAAQ,CACP,MAAM,CAAE,aAAa,CACrB,SAAS,CAAE,IAAI,CACf,UAAU,CAAE,IAAI,CAChB,aAAa,CAAE,WAAa,CAC5B,eAAe,CAAE,MAAM,CACvB,cAAc,CAAE,MAAM,CAGtB,aAAQ,CACP,OAAO,CAAE,IAAI,CAEd,gBAAQ,CACP,OAAO,CAAE,IAAI",
+"sources": ["product.sass"],
+"names": [],
+"file": "product.css"
+}

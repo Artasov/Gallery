@@ -1,0 +1,29 @@
+{% extends 'Core/base.html' %}
+{% load static %}
+
+{% block title %}
+    {{ product.name }}
+{% endblock %}
+
+{% block link_content_css %}
+    <link href="{% static 'APP_shop/css/product.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block content %}
+    <div class="product">
+        <div class="u-img-block">
+            <img class="u-img" src="{% if product.image %}{{ product.image.url }}
+                  {% else %}{% static "Core/img/no_image.png" %}{% endif %}" alt="">
+        </div>
+        <div class="u-flex-column-center">
+            <p class="u-text3">{{ product.name }}</p>
+        </div>
+        {% for category in product.categories.values %}
+            <a class="u-text1" href="{{ category.get_absolute_url }}" style="color: black;">
+                {{ category.name }}
+            </a>
+        {% endfor %}
+        <p class="price">${{ product.price }}</p>
+        {{ product.description|linebreaks }}
+    </div>
+{% endblock %}

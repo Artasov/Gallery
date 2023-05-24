@@ -1,0 +1,80 @@
+{% load static %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>{% block title %} {% endblock %}</title>
+    {% block link_content_css %}{% endblock %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+{#    <link rel="icon" type="image/png" href='{% static 'Core/img/LOGO2.png' %}'>#}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="{% static 'Core/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'Core/css/buttons.css' %}" rel="stylesheet">
+    <link href="{% static 'Core/css/inputs.css' %}" rel="stylesheet">
+    {% block head_scripts %}{% endblock %}
+    <script src="https://vk.com/js/api/openapi.js?169" type="text/javascript"></script>
+
+    <meta name="description" content="{% block meta_description %}{% endblock %}">
+    <meta property="og:description" content="{% block meta_og_description %}{% endblock %}">
+    <meta name="keywords"
+          content="{% block meta_keywords %}{% endblock %} xlartas xlag xLAG xL FrorLAG Nikita Artasov Никита Артасов minecraft vimeworld икслаг софт кликер макрос кликеры макросы clicker free">
+    {# Отключает формирование ссылки у номера телефона на iOS #}
+    <meta name="format-detection" content="telephone=no">
+    {# Автор страницы #}
+    <meta name="Author" content="Nikita Artasov">
+    {# Авторские права #}
+    <meta name="Copyright" content="Nikita Artasov">
+    {# Адрес автора #}
+    <meta name="Address" content="Russia">
+    {# локализация сайта, для русскоязычного сайта ru_RU #}
+    <meta property="og:locale" content="ru_RU">
+    {# тип контента, по умолчанию используется article #}
+    <meta property="og:type" content="article">
+    {# заголовок страницы, который будет выводиться в записи социальной сети #}
+    <meta property="og:title" content="xlartas">
+    {# ссылка на изображение, которое будет публиковаться в записи #}
+    <meta property="og:image" content="https://artasov.github.io/xlartas/logo-soc.jpg">
+    {# ссылка на текущую страницу #}
+    <meta property="og:url" content="{{ request.path }}">
+    {# название сайта #}
+    <meta property="og:site_name" content="xlartas">
+    {# Тип карты, по умолчанию используется summary #}
+    <meta name="twitter:card" content="summary">
+    {# Имя/логин автора #}
+    <meta name="twitter:site" content="Nikita Artasov">
+    {# Название страницы #}
+    <meta name="twitter:title" content="xlartas">
+    {# Описание страницы #}
+    <meta name="twitter:description" content="{% block meta_twitter_description %}{% endblock %}">
+    {# Ссылка на изображение #}
+    <meta name="twitter:image" content="https://artasov.github.io/xlartas/logo-soc.jpg">
+    <script src="https://kit.fontawesome.com/321fddf8df.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="wrapper flex-col overflow-hidden">
+    {% include 'Core/include/header.html' %}
+    <main class="overflow-y-scroll overflow-x-hidden flex-col flex-grow-1 no_scrollbar">
+        <div id="loading_spinner_block">
+            <div id="loading_spinner_block-help">
+                <div id="loading_spinner" class="spinner-border fs-4 text-black-50 opacity-50" role="status"></div>
+            </div>
+        </div>
+        {% block content %}{% endblock %}
+        {% include 'Core/include/footer.html' %}
+    </main>
+    {% include 'Core/include/menu_panel.html' %}
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+<script src="{% static 'Core/js/check_device.js' %}"></script>
+<script src="{% static 'Core/js/main.js' %}"></script>
+
+{% block scripts %}{% endblock %}
+</body>
+</html>
+
+

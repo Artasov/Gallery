@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="{% url 'shop:upload_products' %}"
+      method="post" enctype="multipart/form-data"
+      class="flex-col-center">{% csrf_token %}
+    {% if invalid %}<span>{{ invalid }}</span>{% endif %}
+    <input type="file" name="xlsfile" accept=".xls,.xlsx" required>
+    <label>
+        <select name="category" required>
+            {% for c in categories %}
+                <option value="{{ c.name }}">{{ c.name }}</option>
+            {% endfor %}
+        </select>
+    </label>
+    <input type="submit" value="Upload">
+</form>
+</body>
+</html>

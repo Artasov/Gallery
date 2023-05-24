@@ -1,0 +1,65 @@
+{% extends 'Core/base.html' %}
+{% load static %}
+{% load APP_shop_tags %}
+{% block title %}Галерея | Салоны{% endblock %}
+
+{% block link_content_css %}{% endblock %}
+
+{% block scripts %}{% endblock %}
+
+{% block content %}
+    <div id="content" class="container overflow-y-hidden d-none flex-col
+    flex-grow-1" style="max-width: 1000px;">
+
+        <div class="flex-col mt-5">
+            <h1 class="fs-1 text-center fw-6 pb-3">Адреса наших магазинов</h1>
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button fs-5" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="white-space: nowrap">
+                            Вышний Волочёк<span class="text-black-120 fs-6 fw-4" >&nbsp;Казанский просп., 75-77</span>
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                         data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <script type="text/javascript" charset="utf-8" async
+                                    src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ab53ca4388f091e374da5edf52b1ba292b3ea7a2e192bce35efe4d7d4383f9f8b&amp;width=100%25&amp;height=350&amp;lang=ru_RU&amp;scroll=true"></script>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button fs-5 collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Удомля<span class="text-black-120 fs-6 fw-4">&nbsp;просп. Курчатова, 5</span>
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                             data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <script type="text/javascript" charset="utf-8" async
+                                        src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A3d4d183a12764c79abc6b836f45320acf542b2fe349ebb500f4eca37a373f1ab&amp;width=100%25&amp;height=350&amp;lang=ru_RU&amp;scroll=true"></script>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button fs-5 collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Торжок<span class="text-black-120 fs-6 fw-4">&nbsp;Дзержинского, 78</span>
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                             data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <script type="text/javascript" charset="utf-8" async
+                                        src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ad85abcaa8759e6a1bcb08d3d0da99d9d34295e5885d35ada9023901fbf55eb88&amp;width=100%25&amp;height=350&amp;lang=ru_RU&amp;scroll=true"></script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+{% endblock %}

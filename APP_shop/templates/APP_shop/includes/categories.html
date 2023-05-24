@@ -1,0 +1,29 @@
+<div class="category mx-auto mt-1 mb-3 gap-3 d-flex justify-content-between mw-100"
+     style="max-width: 900px">
+    <div id="category-arrow-left" class="flex-col-center"
+         style="width: 3rem">
+        <i class="fa-solid fa-chevron-left fs-1 text-center"></i></div>
+    <div class="overflow-x-hidden h-100 position-relative">
+        <div class="category-menu_wrapper flex-col-center no_scrollbar overflow-x-scroll overflow-y-hidden">
+            <div class="category_menu h-100 gap-3 flex-grow-1 d-flex p-2">
+                {% for c in categories %}
+                    <div class="flex-col-center disable-tap-and-selection">
+                        <div class="category_menu-item mh-100
+                   flex-col-center gap-1 pb-2 pb-sm-3 pt-1 pt-sm-2 rounded-4 px-2"
+                             value="{{ c.slug }}">
+                            <div class="category_menu-item-img-block flex-row-center pt-1">
+                                <img class="h-100 rounded-4 mx-auto disable-tap-and-selection" src="{{ c.image.url }}"
+                                     alt="">
+                            </div>
+                            <span class="fs-6 mx-auto">{{ c.name }}</span>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="category-menu-bg_shadows"></div>
+    </div>
+    <div id="category-arrow-right" class="flex-col-center"
+         style="width: 3rem;">
+        <i class="fa-solid fa-chevron-right fs-1 text-center"></i></div>
+</div>

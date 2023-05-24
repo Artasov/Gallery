@@ -1,0 +1,2 @@
+.catalog-bg_shadows{position:absolute;left:0;top:0;width:100%;transform:translateY(-3px);height:calc(100% + 6px);pointer-events:none;z-index:999;background:#fff;background:linear-gradient(0deg, #fff 0%, rgba(255,255,255,0) 5%, rgba(255,255,255,0) 95%, #fff 100%)}.catalog .card:hover .like_btn{opacity:90%}.catalog .card-img-top{pointer-events:none}
+/*# sourceMappingURL=catalog.css.map */

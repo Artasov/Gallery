@@ -1,0 +1,27 @@
+@import "vars"
+.btn-1
+	transition: all 200ms ease
+	border: 1px solid black
+	padding: 0.3em 0.5em 0.35em 0.5em
+.btn-1-active
+	border: 0
+	box-shadow: 0 0 6px $primary
+	font-weight: 900!important
+
+.btn-submit
+	transition: all 200ms ease
+	border-top: 2px
+	border-bottom: 2px
+	border-style: solid
+	border-color: $inputColor
+	color: $inputColor
+	font-weight: 600
+	padding: 0.3rem 1.3rem 0.3rem 1.3rem
+	border-radius: 1rem
+	&:hover
+		border-color: $primary
+
+.btn-submit-active
+	border-color: $primary!important
+	border-top: 4px!important
+	border-bottom: 4px!important

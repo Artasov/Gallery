@@ -1,0 +1,2 @@
+.product{border:1px solid red;max-width:100%;max-height:100%;grid-template:1fr/1fr 1fr;justify-content:center;flex-direction:column}._pc .product{display:grid}._touch .product{display:flex}
+/*# sourceMappingURL=product.css.map */

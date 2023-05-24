@@ -1,0 +1,26 @@
+{% extends 'Core/base.html' %}
+{% load static %}
+{% load Core_tags %}
+{% block title %}{{ user.get_username }} | Ошибка{% endblock %}
+
+
+{% block content %}
+    <div id="content" class="container d-none -fluid d-flex flex-column
+    justify-content-center flex-grow-1 disable-tap-and-selection"
+         data-bs-theme="dark" style="max-width: 370px;">
+        <div class="p-3 bg-black bg-opacity-10 rounded-4 flex-col-center">
+            <span class="text-danger fw-bold fs-1 text-center">Что-то пошло не так</span>
+            <span class="text-dark-emphasis fs-5 text-center">
+            {{ invalid }}</span></div>
+    </div>
+    {% if redirect %}
+        <script>
+            setTimeout(function () {
+                    window.location.href = "{% url redirect %}";
+                },
+                {% if time_before_redirect %}
+                    {{ time_before_redirect }}
+                    {% else %}7000{% endif %});
+        </script>
+    {% endif %}
+{% endblock %}

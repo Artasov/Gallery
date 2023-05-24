@@ -1,0 +1,48 @@
+{% extends 'Core/base.html' %}
+{% load static %}
+{% load Core_tags %}
+{% block title %}Галерея | Вход{% endblock %}
+
+{% block meta_keywords %}signin login{% endblock %}
+{% block meta_description %}Sign In{% endblock %}
+{% block meta_og_description %}Вход{% endblock %}
+{% block meta_twitter_description %}Sign In{% endblock %}
+
+{% block content %}
+    <div id="content" class="container d-none flex-col-center flex-grow-1"
+         data-bs-theme="dark"
+         style="max-width: 400px;">
+        <div class="row disable-tap-and-selection ">
+            <form class="px-3 py-1 text-center" method="post" action="{% url 'signin' %}">{% csrf_token %}
+                <h1 class="text-dark fw-5 fs-1">Вход</h1>
+                {% if invalid %}
+                    <div><span class="text-danger">{{ invalid }}</span></div>
+                {% endif %}
+                {% if success %}
+                    <div><span class="text-success">{{ success }}</span></div>
+                {% endif %}
+                <div class="mb-3 form__group mt-4">
+                    <input type="text" class="form__field text-center fs-5"
+                           placeholder="Email / Name" name="username" id='username' value="{{ username }}" required/>
+                    <label for="username" class="form__label" style="width: 100%">Почта /
+                        Логин</label>
+                </div>
+                <div class="mb-3 form__group">
+                    <input type="password" class="form__field text-center fs-4 fw-7"
+                           placeholder="Password" name="password" id='password' required/>
+                    <label for="password" class="form__label"
+                           style="width: 100%">Пароль</label>
+                </div>
+                <div class="text-center pt-3 pb-1">
+                    <button type="submit" id="button"
+                            class="btn-submit fs-5 mb-3">Войти</button>
+                </div>
+            </form>
+            <a class="text-secondary fs-6 fw-6 text-center text-decoration-none" href="{% url 'signup' %}">
+                Вы новый пользователь? <span class="color-primary">Регистрация</span></a>
+            <a class="text-secondary fs-6 fw-6 text-center text-decoration-none"
+               href="{% url 'password_reset' %}">
+                Забыли пароль?</a>
+        </div>
+    </div>
+{% endblock %}
