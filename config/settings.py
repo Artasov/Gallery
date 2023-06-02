@@ -11,7 +11,7 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = bool(os.getenv('DEBUG'))
 DEV = bool(os.getenv('DEV'))
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(',')
+ALLOWED_HOSTS = str(os.getenv('ALLOWED_HOSTS')).split(',')
 
 AUTH_USER_MODEL = 'Core.User'
 INSTALLED_APPS = [
@@ -50,7 +50,7 @@ MIDDLEWARE = [
 ]
 
 WSGI_APPLICATION = 'config.wsgi.application'
-ROOT_URLCONF = 'config.urls'
+ROOT_URLCONF = 'Core.urls'
 
 TEMPLATES = [
     {
