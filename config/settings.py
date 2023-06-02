@@ -80,7 +80,7 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'db_auto_us',
+            'NAME': env('DATABASES_USER'),
             'USER': env('DATABASES_USER'),
             'PASSWORD': env('DATABASES_PASS'),
             'HOST': env('DATABASES_HOST')
