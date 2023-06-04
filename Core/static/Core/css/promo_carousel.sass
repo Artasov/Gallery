@@ -16,7 +16,6 @@ $promo_modal_img_height: 30vh
 	h3
 		text-align: center
 		padding: 0.6em 1em
-		background: rgba(0,0,0,.2)
 	.modal-dialog
 		width: 100%
 		max-width: 600px
@@ -28,6 +27,12 @@ $promo_modal_img_height: 30vh
 			text-indent: 20px
 			
 ._pc
+	.promo-modal
+		img
+			margin-bottom: 0!important
+		.promo-modal-title
+			h3
+				color: rgba(0,0,0,.9) !important
 	.carousel-caption
 		display: flex
 		flex-direction: row
@@ -35,6 +40,8 @@ $promo_modal_img_height: 30vh
 		height: 100%
 ._touch
 	.promo-modal
+		h3
+			background: rgba(0,0,0,.25)
 		.promo-modal-title
 			position: absolute
 			top: 0

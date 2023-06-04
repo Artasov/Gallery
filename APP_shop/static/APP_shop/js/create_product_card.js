@@ -6,7 +6,6 @@ function createPagEl(pagJsonEl) {
     card.classList.add('card', 'h-100', 'rounded-4', 'position-relative');
     col.appendChild(card);
 
-
     let likeBtn = document.createElement('div');
     likeBtn.setAttribute('product_name', pagJsonEl.name.toString());
     likeBtn.classList.add('like_btn');
