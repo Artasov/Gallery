@@ -131,7 +131,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'Core/media')
 LOGIN_REDIRECT_URL = ''
 
 CART_SESSION_ID = 'cart'
-PAGINATION_RP_COUNT = 12
+PAGINATION_PRODUCT_COUNT = 30
 
 FTP_IP = os.getenv('FTP_IP')
 FTP_PORT = int(os.getenv('FTP_PORT'))

@@ -76,8 +76,8 @@ def get_new_for_pagination(request, last_pag_num: int):
 
     count = products_all.count()
 
-    if count > last_pag_num + settings.PAGINATION_RP_COUNT:
-        pag_part = products_all[last_pag_num:last_pag_num + settings.PAGINATION_RP_COUNT]
+    if count > last_pag_num + settings.PAGINATION_PRODUCT_COUNT:
+        pag_part = products_all[last_pag_num:last_pag_num + settings.PAGINATION_PRODUCT_COUNT]
     elif count != last_pag_num:
         pag_part = products_all[last_pag_num:]
     else:
