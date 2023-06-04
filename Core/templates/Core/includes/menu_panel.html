@@ -1,6 +1,6 @@
 {% load static %}
 <div class="menu_panel w-100 d-flex d-sm-none justify-content-center"
-     style="height: 62px; box-shadow: 0 0 8px rgba(0,0,0,0.5)">
+     style="height: 62px; box-shadow: 0 0 8px rgba(0,0,0,0.5); z-index: 999;">
     <div class="d-flex justify-content-center w-100 gap-5 ">
         <a href="{% if user.is_authenticated %}
                 {% url 'profile' %}
