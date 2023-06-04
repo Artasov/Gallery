@@ -1,0 +1,47 @@
+@import "../../../../Core/static/Core/css/vars"
+.products-scroll-block
+	.products-menu-bg_shadows
+		position: absolute
+		left: 0
+		top: 0
+		width: calc(100% + 6px)
+		transform: translateX(-3px)
+		height: 100%
+		pointer-events: none
+		z-index: 999
+		background: rgb(255, 255, 255)
+		background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 5%, rgba(255, 255, 255, 0) 95%, rgba(255, 255, 255, 1) 100%)
+	
+	.products-menu_wrapper
+		.products_menu
+			height: 100%
+			.products_menu-item
+				transition: all 200ms ease
+				font-weight: 500
+				
+				.products_menu-item-img-block
+				
+
+._pc
+	.products
+		min-height: 120px !important
+		
+		.products_menu-item
+			max-height: 110px !important
+		
+		.products_menu-item-img-block
+			height: 80px
+
+._touch
+	.products
+		min-height: 90px !important
+		
+		.products_menu-item
+			max-height: 80px !important
+		
+		.products_menu-item-img-block
+			height: 60px
+
+.products-active
+	box-shadow: 0 0 6px $primary
+	font-weight: 700 !important

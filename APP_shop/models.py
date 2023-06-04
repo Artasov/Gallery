@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 
 
@@ -39,8 +40,8 @@ class Product(models.Model):
     discount = models.IntegerField(blank=True, null=True, verbose_name='Скидка')
     rating = models.IntegerField(blank=True, null=True, verbose_name='Рейтинг')
     available = models.BooleanField(default=True, verbose_name='Наличие')
-    created = models.DateTimeField(auto_now_add=True, verbose_name='Добавлен')
-    uploaded = models.DateTimeField(auto_now=True, verbose_name='Изменен')
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Добавлен')
+    uploaded_at = models.DateTimeField(auto_now=True, verbose_name='Изменен')
 
     class Meta:
         ordering = ('name',)
@@ -53,3 +54,4 @@ class Product(models.Model):
 
     def get_absolute_url(self):
         return reverse('APP_shop:product_detail', args=[self.id, self.slug])
+

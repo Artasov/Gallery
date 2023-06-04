@@ -1,0 +1,73 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'Core/css/promo_carousel.css' %}">
+<div id="carouselPromo" class="carousel slide mt-2 carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselPromo" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselPromo" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselPromo" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner ">
+        {% for promo in promos %}
+            <div data-bs-interval="4000"
+                 class="carousel-item
+                 promo-carousel-item
+                 {% if forloop.counter == 1 %}active{% endif %}"
+            >
+                <img src="{{ promo.image.url }}" class="w-100 " alt="...">
+                <div type="button"
+                     class="carousel-caption"
+                     data-bs-toggle="modal"
+                     data-bs-target="#promo-modal-{{ promo.id }}">
+                    <div class="flex-col-center">
+                        <h2 class="fs-x6 text-white-90 mb-2">{{ promo.title }}</h2>
+                        <p class="fs-4 d-none d-md-block">{{ promo.desc|truncatewords:20 }}</p>
+                    </div>
+                </div>
+
+
+            </div>
+        {% endfor %}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselPromo" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselPromo" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+{% for promo in promos %}
+    <div class="promo-modal modal fade border-0" id="promo-modal-{{ promo.id }}" tabindex="-1"
+         aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="
+        modal-dialog
+        modal-dialog-centered
+        modal-dialog-scrollable
+        w-100 mx-auto p-0">
+            <div class="modal-content">
+                {#                <div class="modal-header">#}
+                {#                    <h1 class="modal-title fs-5" id="exampleModalLabel">{{ promo.title }}</h1>#}
+                {#                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>#}
+                {#                </div>#}
+                <div class="modal-body p-0">
+                    <img class="mb-3 w-100" src="{{ promo.image.url }}" alt="">
+                    <p class="px-3 fs-6">{{ promo.desc }}</p>
+                    <ul class="px-3">
+                        <li>Акция началась {{ promo.date_published|date:"d F Y" }}</li>
+                        <li>Акция началась {{ promo.date_expired|date:"d F Y" }}</li>
+                    </ul>
+
+
+                </div>
+                <div class="modal-footer">
+                    <a href="{% url 'shop:catalog' %}" class="btn-1">Украшения</a>
+                    <button type="button" class="btn-1">Свяжитесь с нами</button>
+                    <button type="button" class="btn-1" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+<script src="{% static 'Core/js/promo_carousel.js' %}"></script>

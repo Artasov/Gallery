@@ -5,14 +5,27 @@ from django.core.validators import validate_email
 from django.db import transaction
 from django.shortcuts import render, redirect
 from django.urls import reverse
+from django.utils import timezone
 from django.utils.crypto import get_random_string
 
+from APP_shop.models import Product
 from Core.funcs import send_email_by_template
-from Core.models import User, UnconfirmedUser, UnconfirmedPasswordReset
+from Core.models import User, UnconfirmedUser, UnconfirmedPasswordReset, Promo
 
 
 def main(request):
-    return render(request, 'Core/main.html')
+    now = timezone.now()
+    promos = Promo.objects.filter(
+        date_published__lte=now,
+        date_expired__gte=now,
+    )
+    new_products = Product.objects.order_by('-created_at').all()[:5]
+    hit_products = Product.objects.order_by('-rating').all()[:5]
+    return render(request, 'Core/main.html', {
+        'promos': promos,
+        'hit_products': hit_products,
+        'new_products': new_products
+    })
 
 
 def profile(request):
