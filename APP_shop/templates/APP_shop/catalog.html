@@ -14,7 +14,8 @@
 {% endblock %}
 
 {% block content %}
-    <div id="content" class="container overflow-y-hidden d-none flex-col flex-grow-1" style="max-width: 1000px;">
+    <div id="content" class="w-100 overflow-y-hidden d-none flex-col flex-grow-1"
+         style="">
         {% include 'APP_shop/includes/categories.html' %}
 
         <div class="flex-row-center">
@@ -27,11 +28,11 @@
                 </button>
             </div>
         </div>
-        <div class="position-relative overflow-y-hidden flex-col flex-grow-1 mt-1 pt-2 mx-auto"
-             style="margin-bottom: 1px; max-width: 700px;">
+        <div class="position-relative w-100 overflow-y-hidden flex-col flex-grow-1 mt-1 pt-2 mx-auto"
+             style="margin-bottom: 1px;">
             <div class="pag_block_scroll overflow-y-scroll no_scrollbar">
-                <div class="container catalog flex-col mx-auto mw-100">
-                    <div class="row pag_container row-cols-2 row-cols-sm-3 row-cols-md-4">
+                <div class="container w-100 catalog flex-col mx-auto mw-100">
+                    <div  style="max-width: 700px;" class="row mx-auto pag_container row-cols-2 row-cols-sm-3 row-cols-md-4">
 
                     </div>
                 </div>
