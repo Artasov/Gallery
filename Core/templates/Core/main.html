@@ -4,7 +4,7 @@
 {% block title %}Галерея - твой салон украшений{% endblock %}
 
 {% block content %}
-    <div id="content" class="container d-none flex-col flex-grow-1" style="max-width: 1000px;">
+    <div id="content" class="container d-none flex-col flex-grow-1 p-0" style="max-width: 1000px;">
         {% if promos.count != 0 %}
             <section>
                 {% include 'Core/includes/promo_carousel.html' %}
