@@ -1,10 +1,11 @@
 {% load static %}
-<link rel="stylesheet" href="{% static 'APP_shop/css/products_x_scroll_bar.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'APP_shop/css/products_x_scroll_bar.css' %}">
 <div class="products-scroll-block mx-auto mt-1 mb-3 gap-3 d-flex justify-content-between mw-100"
      style="max-width: 900px; height: 170px;">
-    <div id="products-arrow-left" class="flex-col-center"
+    <div class="products-arrow-left flex-col-center"
          style="width: 3rem">
-        <i class="fa-solid fa-chevron-left fs-1 text-center"></i></div>
+        <i class="fa-solid fa-chevron-left fs-1 text-center"></i>
+    </div>
     <div class="overflow-x-hidden h-100 position-relative">
         <div class="products-menu_wrapper h-100 flex-col-center no_scrollbar overflow-x-scroll overflow-y-hidden">
             <div class="products_menu h-100 gap-3 flex-grow-1 d-flex p-2">
@@ -26,27 +27,31 @@
         </div>
         <div class="products-menu-bg_shadows"></div>
     </div>
-    <div id="products-arrow-right" class="flex-col-center"
+    <div class="flex-col-center products-arrow-right"
          style="width: 3rem;">
         <i class="fa-solid fa-chevron-right fs-1 text-center"></i></div>
     <script>
-        const ArrowLeft = document.getElementById('products-arrow-left');
-        const ArrowRight = document.getElementById('products-arrow-right');
-        const ScrollBlock = document.getElementsByClassName('products-menu_wrapper')[0];
-
-
-        ArrowLeft.addEventListener('click', function () {
-            ScrollBlock.scrollBy({
-                left: -140,
-                behavior: 'smooth'
-            });
-        });
-
-        ArrowRight.addEventListener('click', function () {
-            ScrollBlock.scrollBy({
-                left: 140,
-                behavior: 'smooth'
-            });
-        });
+        for (const arrowsLeftElement of document.getElementsByClassName('products-arrow-left')) {
+            arrowsLeftElement.addEventListener('click', function () {
+                arrowsLeftElement.parentElement
+                    .getElementsByClassName('products-menu_wrapper')[0].scrollBy(
+                    {
+                        left: -140,
+                        behavior: 'smooth'
+                    }
+                )
+            })
+        }
+        for (const arrowsRightElement of document.getElementsByClassName('products-arrow-right')) {
+            arrowsRightElement.addEventListener('click', function () {
+                arrowsRightElement.parentElement
+                    .getElementsByClassName('products-menu_wrapper')[0].scrollBy(
+                    {
+                        left: 140,
+                        behavior: 'smooth'
+                    }
+                )
+            })
+        }
     </script>
 </div>
