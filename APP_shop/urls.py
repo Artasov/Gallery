@@ -11,6 +11,6 @@ urlpatterns = [
     path('favorites/', TemplateView.as_view(template_name='APP_shop/favorites.html'), name='favorites'),
 
     path('get_new_for_pagination/<int:last_pag_num>/', views.get_new_for_pagination, name='get_new_for_pagination'),
-    path('<int:id>/<slug:slug>', views.product_detail,
+    path('product/<int:id>/', views.product_detail,
          name='product_detail')
 ]

@@ -5,10 +5,22 @@
 	grid-template: 1fr / 1fr 1fr
 	justify-content: center
 	flex-direction: column
-
+ 
 ._pc
 	.product
 		display: grid
 ._touch
 	.product
 		display: flex
+		
+$product_modal_img_height: 40vh
+.product-modal
+	h3
+	.modal-dialog
+		width: 100%
+		max-width: 600px
+	.modal-body
+		img
+			height: $product_modal_img_height!important
+			object-fit: contain
+			

@@ -1,2 +1,2 @@
-.product{border:1px solid red;max-width:100%;max-height:100%;grid-template:1fr/1fr 1fr;justify-content:center;flex-direction:column}._pc .product{display:grid}._touch .product{display:flex}
+.product{border:1px solid red;max-width:100%;max-height:100%;grid-template:1fr/1fr 1fr;justify-content:center;flex-direction:column}._pc .product{display:grid}._touch .product{display:flex}.product-modal .modal-dialog{width:100%;max-width:600px}.product-modal .modal-body img{height:40vh !important;object-fit:contain}
 /*# sourceMappingURL=product.css.map */

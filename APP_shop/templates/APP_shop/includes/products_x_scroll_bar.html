@@ -1,20 +1,23 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'APP_shop/css/products_x_scroll_bar.css' %}">
 <div class="products-scroll-block mx-auto mt-1 mb-3 px-3 gap-3 d-flex justify-content-between mw-100"
-     style="max-width: 900px; height: 140px;">
+     style="max-width: 900px; height: 120px;">
     <div class="products-arrow-left flex-col-center"
          style="width: 3rem">
         <i class="fa-solid fa-chevron-left fs-1 text-center"></i>
     </div>
     <div class="overflow-x-hidden h-100 position-relative">
         <div class="products-menu_wrapper h-100 flex-col-center no_scrollbar overflow-x-scroll overflow-y-hidden">
-            <div class="products_menu h-100 gap-3 flex-grow-1 d-flex p-2">
+            <div class="products_menu h-100 gap-2 flex-grow-1 d-flex p-2">
                 {% for product in products %}
                     <div class="flex-col-center h-100 disable-tap-and-selection">
                         <div class="products_menu-item h-100 mh-100
                    flex-col-center gap-1 pb-2 pb-sm-3 pt-1 pt-sm-2 rounded-4 px-2"
                              value="">
-                            <div class="products_menu-item-img-block h-100 flex-row-center pt-1">
+                            <div type="button"
+                                 data-bs-toggle="modal"
+                                 data-bs-target="#product-modal-{{ product.id }}"
+                                 class="products_menu-item-img-block h-100 flex-row-center pt-1">
                                 <img class="h-100 rounded-4 mx-auto
                                 disable-tap-and-selection"
                                      src="{{ product.image.url }}"
@@ -29,7 +32,9 @@
     </div>
     <div class="flex-col-center products-arrow-right"
          style="width: 3rem;">
-        <i class="fa-solid fa-chevron-right fs-1 text-center"></i></div>
+        <i class="fa-solid fa-chevron-right fs-1 text-center"></i>
+    </div>
+
     <script>
         for (const arrowsLeftElement of document.getElementsByClassName('products-arrow-left')) {
             arrowsLeftElement.addEventListener('click', function () {
@@ -54,4 +59,39 @@
             })
         }
     </script>
+
+    {% for product in products %}
+        <div class="product-modal modal fade border-0" id="product-modal-{{ product.id }}" tabindex="-1"
+             aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="
+        modal-dialog
+        modal-dialog-centered
+        modal-dialog-scrollable
+        w-100 mx-auto p-0">
+                <div class="modal-content">
+                    <div class="modal-body p-0">
+                        <img class="w-100" src="{{ product.image.url }}" alt="">
+                        <div class="px-3">
+                            <h3 class="fs-2">
+                                <span>{{ product.category.name }}</span>
+                                <span>{{ product.name }}</span>
+                            </h3>
+                            <p class="fs-5">{{ product.desc }}</p>
+                            <p class="fs-5">Вес {{ product.weight }}</p>
+                            {% if product.size %}
+                                <p class="fs-5">Размер {{ product.size }}</p>
+                            {% endif %}
+                            <p>Вам понравился товар? Свяжитесь с нами для уточнения подробностей</p>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <a href="{% url 'shop:catalog' %}" class="btn-1">Смотреть другие</a>
+                        <button type="button" class="btn-1">Свяжитесь с нами</button>
+                        <button type="button" class="btn-1" data-bs-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
 </div>

@@ -1,6 +1,6 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'Core/css/promo_carousel.css' %}">
-<div id="carouselPromo" class="carousel slide mt-2 carousel-fade" data-bs-ride="carousel">
+<div id="carouselPromo" class="carousel slide mt-2 " data-bs-ride="carousel">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselPromo" data-bs-slide-to="0" class="active"
                 aria-current="true" aria-label="Slide 1"></button>
@@ -47,16 +47,15 @@
         modal-dialog-scrollable
         w-100 mx-auto p-0">
             <div class="modal-content">
-                {#                <div class="modal-header">#}
-                {#                    <h1 class="modal-title fs-5" id="exampleModalLabel">{{ promo.title }}</h1>#}
-                {#                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>#}
-                {#                </div>#}
-                <div class="modal-body p-0">
+                <div class="modal-body p-0 position-relative">
                     <img class="mb-3 w-100" src="{{ promo.image.url }}" alt="">
-                    <p class="px-3 fs-6">{{ promo.desc }}</p>
-                    <ul class="px-3">
-                        <li>Акция началась {{ promo.date_published|date:"d F Y" }}</li>
-                        <li>Акция началась {{ promo.date_expired|date:"d F Y" }}</li>
+                    <div class="promo-modal-title flex-col-center">
+                        <h3 class="fs-2 text-white-90"><span>{{ promo.title }}</span></h3>
+                    </div>
+                    <p class="px-3 fs-5">{{ promo.desc }}</p>
+                    <ul class="px-3 fs-5">
+                        <li>Начало акции: {{ promo.date_published|date:"d F Y" }}</li>
+                        <li>Конец акции: {{ promo.date_expired|date:"d F Y" }}</li>
                     </ul>
 
 

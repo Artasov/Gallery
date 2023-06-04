@@ -12,10 +12,11 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['name', 'image_show', 'price', 'discount', 'rating', 'available', 'created_at', 'uploaded_at']
+    list_display = ['id', 'name', 'image_show', 'price', 'discount', 'rating', 'available', 'created_at', 'uploaded_at']
     list_filter = ['available', 'created_at', 'uploaded_at']
     list_editable = ['price', 'discount', 'available']
     prepopulated_fields = {'slug': ('name',)}
+    search_fields = ['id', 'name']
 
     def image_show(self, obj):
         if obj.image:

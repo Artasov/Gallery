@@ -9,11 +9,20 @@
 		text-indent: 20px
 		max-width: 300px
 		margin: 0 auto
-
+		
+		
+$promo_modal_img_height: 30vh
 .promo-modal
+	h3
+		text-align: center
+		padding: 0.6em 1em
+		background: rgba(0,0,0,.2)
+	.modal-dialog
+		width: 100%
+		max-width: 600px
 	.modal-body
 		img
-			height: 150px
+			height: $promo_modal_img_height
 			object-fit: cover
 		p
 			text-indent: 20px
@@ -24,3 +33,15 @@
 		flex-direction: row
 		justify-content: flex-start
 		height: 100%
+._touch
+	.promo-modal
+		.promo-modal-title
+			position: absolute
+			top: 0
+			left: 0
+			width: 100%
+			height: $promo_modal_img_height
+			justify-content: flex-end
+			h3
+				text-align: left
+			
