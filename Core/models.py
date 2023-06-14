@@ -1,6 +1,9 @@
+import os
+
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.utils import timezone
+from django.utils.text import slugify
 
 
 class User(AbstractUser):
@@ -28,6 +31,14 @@ class Promo(models.Model):
 
     date_created = models.DateTimeField(auto_now=True)
 
+    def save(self, *args, **kwargs):
+        # Заменяем русские символы в названии файла на транслит
+        if self.image:
+            filename = self.image.name
+            new_filename = slugify(filename)
+            self.image.name = os.path.join('promos/', new_filename)
+
+        super().save(*args, **kwargs)
     class Meta:
         ordering = ('date_published',)
         verbose_name = 'Акция'
