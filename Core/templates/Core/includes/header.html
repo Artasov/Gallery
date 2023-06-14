@@ -7,25 +7,28 @@
         <nav class="d-flex justify-content-center fs-5 mt-3">
 {#            <div class="nav-item px-3 d-none d-sm-flex flex-column justify-content-center">#}
 {#                <a href="#">АКЦИИ</a></div>#}
-            <div class="nav-item px-3 d-none d-sm-flex flex-column justify-content-center">
-                <a href="{% url 'addresses' %}">САЛОНЫ</a></div>
-            <div class="nav-item px-3 d-none d-sm-flex flex-column justify-content-center">
-                <a href="{% url 'shop:catalog' %}">
-                    <span>КАТАЛОГ</span></a></div>
-            <div id="header_touch_catalog_btn" class="nav-item px-3 flex-col-center d-sm-none">
-                <a href="{% url 'shop:catalog' %}">
-                    <span class="fw-bold text-decoration-none">КАТАЛОГ</span></a></div>
-            <div class="nav-item px-3 d-none d-sm-flex flex-column justify-content-center after_none">
-                <a href="{% url 'shop:favorites' %}"><i class="fa-solid fa-heart"></i></a></div>
+            <div class="nav-item px-5 d-none d-sm-flex flex-column justify-content-center">
+                <a href="{% url 'addresses' %}">АДРЕСА НАШИХ САЛОНОВ</a></div>
+{#            <div class="nav-item px-3 d-none d-sm-flex flex-column justify-content-center">#}
+{#                <a href="{% url 'shop:catalog' %}">#}
+{#                    <span>КАТАЛОГ</span></a></div>#}
+{#            <div id="header_touch_catalog_btn" class="nav-item px-3 flex-col-center d-sm-none">#}
+{#                <a href="{% url 'shop:catalog' %}">#}
+{#                    <span class="fw-bold text-decoration-none">КАТАЛОГ</span></a></div>#}
+{#            <div class="nav-item px-3 d-none d-sm-flex flex-column justify-content-center after_none">#}
+{#                <a href="{% url 'shop:favorites' %}"><i class="fa-solid fa-heart"></i></a></div>#}
             <div class="nav-item px-3 d-none d-sm-flex flex-column justify-content-center after_none">
                 <a href="{% url 'contacts' %}"><i class="fa-solid fa-phone"></i></a></div>
             <div class="nav-item px-3 d-none d-sm-flex flex-column justify-content-center after_none">
-                <a href="
-                {% if user.is_authenticated %}
-                {% url 'profile' %}
-                {% else %}
-                {% url 'signin' %}
-                {% endif %}"><i class="fa-solid fa-user"></i></a></div>
+                <a href="{% url 'addresses' %}"><i class="fa-solid fa-map-location-dot"></i></a></div>
+
+            {#            <div class="nav-item px-3 d-none d-sm-flex flex-column justify-content-center after_none">#}
+{#                <a href="#}
+{#                {% if user.is_authenticated %}#}
+{#                {% url 'profile' %}#}
+{#                {% else %}#}
+{#                {% url 'signin' %}#}
+{#                {% endif %}"><i class="fa-solid fa-user"></i></a></div>#}
         </nav>
     </div>
     <div style="height: 1px; background: black;"

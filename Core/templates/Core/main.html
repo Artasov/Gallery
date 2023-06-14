@@ -6,19 +6,134 @@
     <link rel="stylesheet" type="text/css" href="{% static 'APP_shop/css/product.css' %}">
 {% endblock %}
 {% block content %}
-    <div id="content" class="container d-none flex-col flex-grow-1 p-0" style="max-width: 1920px;">
+    <div id="content" class="d-none flex-col flex-grow-1 p-0">
         {% if promos.count != 0 %}
             <section>
                 {% include 'Core/includes/promo_carousel.html' %}
             </section>
         {% endif %}
-        <section style="max-width: 700px; width: 100%; margin: 0 auto;">
-            <h2 class="fs-xx5 text-center">Новинки</h2>
-            {% include 'APP_shop/includes/products_x_scroll_bar.html' with products=new_products %}
+        <section>
+            {% include 'Core/includes/social_links_list.html' with container_classes='flex-row-center gap-2' %}
         </section>
-        <section style="max-width: 700px; width: 100%; margin: 0 auto;">
-            <h2 class="fs-xx5 text-center">Хиты продаж</h2>
-            {% include 'APP_shop/includes/products_x_scroll_bar.html' with products=hit_products %}
+        <section>
+            <h1 class="fs-1 text-center fw-6 pb-3">Адреса наших салонов</h1>
+            <div style="max-width: 600px" class="accordion px-2 mx-auto" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button fs-5 collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"
+                                style="white-space: nowrap">
+                            Вышний Волочёк<span class="text-black-120 fs-6 fw-4">&nbsp;Казанский просп., 75-77</span>
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                         data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <script type="text/javascript" charset="utf-8" async
+                                    src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ab53ca4388f091e374da5edf52b1ba292b3ea7a2e192bce35efe4d7d4383f9f8b&amp;width=100%25&amp;height=350&amp;lang=ru_RU&amp;scroll=true"></script>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button fs-5 collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Удомля<span class="text-black-120 fs-6 fw-4">&nbsp;просп. Курчатова, 5</span>
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                         data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <script type="text/javascript" charset="utf-8" async
+                                    src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A3d4d183a12764c79abc6b836f45320acf542b2fe349ebb500f4eca37a373f1ab&amp;width=100%25&amp;height=350&amp;lang=ru_RU&amp;scroll=true"></script>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button fs-5 collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Торжок<span class="text-black-120 fs-6 fw-4">&nbsp;Дзержинского, 78</span>
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                         data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <script type="text/javascript" charset="utf-8" async
+                                    src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ad85abcaa8759e6a1bcb08d3d0da99d9d34295e5885d35ada9023901fbf55eb88&amp;width=100%25&amp;height=350&amp;lang=ru_RU&amp;scroll=true"></script>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+        <section class="flex-row-center">
+            <div class="row flex-row-center px-4 px-4 w-md-50">
+                <div style="min-width: 120px;" class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="card-title flex-row-center gap-2 mb-2">
+                                <h3 class="card-name my-auto fw-bold fs-4">НИЗКАЯ ЦЕНА</h3>
+                                <img style="width: 30px; height: 30px;" src="{% static 'Core/img/low_price_icon.png' %}"
+                                     class="card-img-top" alt="Image 1">
+                            </div>
+                            <p class="card-text fs-5 text-center">
+                                Мы на 100% уверены, что наши цены ниже!
+                                И если вы найдёте такие же украшения, но дешевле...
+                                Мы сделаем цену ещё ниже и подарим Вам сертификат!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div style="min-width: 120px;" class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="card-title flex-row-center gap-2 mb-2">
+                                <h3 class="card-name my-auto fw-bold fs-4">ГАРАНТИИ</h3>
+                                <img style="width: 30px; height: 30px;" src="{% static 'Core/img/guarantee_icon.png' %}"
+                                     class="card-img-top" alt="Image 1">
+                            </div>
+                            <p class="card-text fs-5 text-center">
+                                Мы на 100% уверены в качестве наших украшений,
+                                поэтому даём Вам расширенную гарантию...
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div style="min-width: 120px;" class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="card-title flex-row-center gap-2 mb-2">
+                                <h3 class="card-name my-auto fw-bold fs-4">ВЫГОДНЫЙ ОБМЕН</h3>
+                                <img style="width: 27px; height: 27px;" src="{% static 'Core/img/trade_icon.png' %}"
+                                     class="card-img-top" alt="Image 1">
+                            </div>
+                            <p class="card-text fs-5 text-center">
+                                Поменяйте ваши старые и надоевшие украшения на новые...
+                                Мы дадим вам самые выгодные условия!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div style="min-width: 120px;" class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="card-title flex-row-center gap-2 mb-2">
+                                <h3 class="card-name my-auto fw-bold fs-4">ДИЗАЙН</h3>
+                                <img style="width: 30px; height: 30px;" src="{% static 'Core/img/design_icon.png' %}"
+                                     class="card-img-top" alt="Image 1">
+                            </div>
+                            <p class="card-text fs-5 text-center">
+                                Мы ежемесячно обновляем наши коллекции и очень любим экспериментировать...
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+
         </section>
     </div>
     <script src="{% static 'APP_shop/js/create_product_card.js' %}"></script>

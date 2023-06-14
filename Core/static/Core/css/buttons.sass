@@ -3,10 +3,12 @@
 	transition: all 200ms ease
 	border: 1px solid black
 	padding: 0.3em 0.5em 0.35em 0.5em
+
 .btn-1-active
 	border: 0
 	box-shadow: 0 0 6px $primary
-	font-weight: 900!important
+	font-weight: 900 !important
+
 
 .btn-submit
 	transition: all 200ms ease
@@ -18,10 +20,151 @@
 	font-weight: 600
 	padding: 0.3rem 1.3rem 0.3rem 1.3rem
 	border-radius: 1rem
+	
 	&:hover
 		border-color: $primary
 
 .btn-submit-active
-	border-color: $primary!important
-	border-top: 4px!important
-	border-bottom: 4px!important
+	border-color: $primary !important
+	border-top: 4px !important
+	border-bottom: 4px !important
+
+//{% include 'buttons/btn_inner_light.html' with text='Адреса наших салонов'%}
+.base
+	position: relative
+	display: grid
+	grid-template-columns: repeat(30, 1fr)
+	grid-template-rows: repeat(10, 1fr)
+	width: 310px
+	height: 70px
+	border-radius: 3px
+	color: #ffffff
+	background: rgba(255, 255, 255, 0.26)
+	font: 700 24px sans-serif
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07), 0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07), 0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07)
+
+.base i
+	width: calc(310px / 30)
+	height: calc(70px / 10)
+
+@for $i from 1 through 10
+	base > i:nth-child(n + #{30 * ($i - 1) + 1}):nth-child(-n + #{30 * $i}):hover ~ .bg
+		--y: #{10 * $i}%
+
+@for $i from 1 through 30
+	base > i:nth-child(30n+#{ $i }):hover ~ .bg
+		--x: #{100 / 30 * $i}%
+
+.bg
+	position: absolute
+	z-index: 10
+	left: 0
+	top: 0
+	display: grid
+	place-content: center
+	width: 100%
+	height: 100%
+	grid-column: 1 / span 30
+	grid-row: 1 / span 10
+	transition: opacity .3s
+	pointer-events: none
+	text-shadow: 0 2px 5px rgba(0, 0, 0, .1)
+
+i:hover ~ .bg
+	background: radial-gradient(circle 110px at var(--x) var(--y), rgba(255, 255, 255, 0.75), rgba(169, 242, 136, 0))
+
+///////////////////////////////////////////
+.popup_list1
+	box-sizing: border-box
+	display: inline-flex
+	list-style: none
+
+
+.popup_list1 .icon
+	position: relative
+	background: #ffffff
+	border-radius: 50%
+	width: 50px
+	height: 50px
+	font-size: 18px
+	display: flex
+	justify-content: center
+	align-items: center
+	flex-direction: column
+	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1)
+	cursor: pointer
+	transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55)
+
+
+.popup_list1 .tooltip
+	position: absolute
+	top: 0
+	font-size: 14px
+	background: #ffffff
+	color: #ffffff
+	padding: 5px 8px
+	border-radius: 5px
+	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1)
+	opacity: 0
+	pointer-events: none
+	transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55)
+
+
+.popup_list1 .tooltip::before
+	position: absolute
+	content: ""
+	height: 8px
+	width: 8px
+	background: #ffffff
+	bottom: -3px
+	left: 50%
+	transform: translate(-50%) rotate(45deg)
+	transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55)
+
+
+.popup_list1 .icon:hover .tooltip
+	top: -45px
+	opacity: 1
+	visibility: visible
+	pointer-events: auto
+
+.popup_list1
+	a
+		transition: all 0.3s ease
+	img
+		transition: all 0.15s ease
+		width: 25px
+		height: 25px
+		filter: invert(0.1)
+.icon:hover
+	img
+		filter: invert(1)
+.popup_list1 .icon:hover span,
+.popup_list1 .icon:hover .tooltip
+	text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1)
+	font-weight: bold
+
+
+.popup_list1 .facebook:hover,
+.popup_list1 .facebook:hover .tooltip,
+.popup_list1 .facebook:hover .tooltip::before
+	background: linear-gradient(90deg, rgb(30, 167, 231) 0%, rgb(16, 139, 233) 100%)
+	color: #ffffff
+
+.popup_list1 .instagram:hover,
+.popup_list1 .instagram:hover .tooltip,
+.popup_list1 .instagram:hover .tooltip::before
+	background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)
+	color: #ffffff
+
+.popup_list1 .ok:hover,
+.popup_list1 .ok:hover .tooltip,
+.popup_list1 .ok:hover .tooltip::before
+	background: linear-gradient(90deg, rgba(255,152,0,1) 0%, rgba(255,120,0,1) 100%)
+	color: #ffffff
+
+.popup_list1 .vk:hover,
+.popup_list1 .vk:hover .tooltip,
+.popup_list1 .vk:hover .tooltip::before
+	background: linear-gradient(90deg, rgb(30, 136, 229) 0%, rgb(0, 115, 255) 100%)
+	color: #ffffff

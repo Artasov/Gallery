@@ -2,21 +2,24 @@
 <div class="menu_panel w-100 d-flex d-sm-none justify-content-center"
      style="height: 62px; box-shadow: 0 0 8px rgba(0,0,0,0.5); z-index: 999;">
     <div class="d-flex justify-content-center w-100 gap-5 ">
-        <a href="{% if user.is_authenticated %}
-                {% url 'profile' %}
-                {% else %}
-                {% url 'signin' %}
-                {% endif %}" class="menu_panel_item flex-col-center gap-1 py-2">
-            <i class="fa-solid fa-user text-center fs-1"></i>
-            <span class="">{% if user.is_authenticated %}
-                Профиль{% else %}Вход{% endif %}</span>
-        </a>
+{#        <a href="{% if user.is_authenticated %}#}
+{#                {% url 'profile' %}#}
+{#                {% else %}#}
+{#                {% url 'signin' %}#}
+{#                {% endif %}" class="menu_panel_item flex-col-center gap-1 py-2">#}
+{#            <i class="fa-solid fa-user text-center fs-1"></i>#}
+{#            <span class="">{% if user.is_authenticated %}#}
+{#                Профиль{% else %}Вход{% endif %}</span>#}
+{#        </a>#}
         <a href="{% url 'addresses' %}" class="menu_panel_item flex-col-center gap-1 py-2">
             <i class="fa-solid fa-map-location-dot text-center fs-1"></i>
             <span class="">Салоны</span></a>
-        <a href="{% url 'shop:favorites' %}" class="menu_panel_item flex-col-center gap-1 py-2">
-            <i class="fa-solid fa-heart text-center fs-1"></i>
-            <span class="">Избранное</span></a>
+        <a href="{% url 'contacts' %}" class="menu_panel_item flex-col-center gap-1 py-2">
+            <i class="fa-solid fa-cubes-stacked text-center fs-1"></i>
+            <span class="">Соц. сети</span></a>
+{#        <a href="{% url 'shop:favorites' %}" class="menu_panel_item flex-col-center gap-1 py-2">#}
+{#            <i class="fa-solid fa-heart text-center fs-1"></i>#}
+{#            <span class="">Избранное</span></a>#}
         <a href="{% url 'contacts' %}" class="menu_panel_item flex-col-center gap-1 py-2">
             <i class="fa-solid fa-phone text-center fs-1"></i>
             <span class="">Контакты</span></a>

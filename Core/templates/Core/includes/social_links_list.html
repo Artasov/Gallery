@@ -1,0 +1,45 @@
+{% load static %}
+{% load Core_tags %}
+<ul class="popup_list1 w-100 {{ container_classes }}">
+    <li class="icon vk">
+        <span class="tooltip px-3">Vk</span>
+        <a href="{% get_company_data "vk" %}" target="_blank">
+            <img src="{% static 'Core/img/soc/vk.png' %}" alt=""></a>
+    </li>
+    <li class="icon instagram">
+        <span class="tooltip px-3">Instagram</span>
+        <a href="{% get_company_data "instagram" %}" target="_blank">
+            <img style="width: 20px; height: 20px"
+                 src="{% static 'Core/img/soc/instagram_solid_black.png' %}"
+                 alt=""></a>
+    </li>
+    <li class="icon ok">
+        <span class="tooltip px-3">Одноклассники</span>
+        <a href="{% get_company_data "ok" %}" target="_blank">
+            <img style="width: 30px; height: 30px"
+                 src="{% static 'Core/img/soc/ok.png' %}" alt=""></a>
+    </li>
+    <li class="icon facebook">
+        <span class="tooltip px-3">Facebook</span>
+        <a href="{% get_company_data "facebook" %}" target="_blank">
+            <img style="width: 27px; height: 27px"
+                 src="{% static 'Core/img/soc/fb.png' %}"
+                 alt=""></a>
+    </li>
+</ul>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let elements = document.querySelectorAll('.popup_list1 > li > a');
+        setTimeout(triggerHover, 3000);
+
+        function triggerHover() {
+            console.log('123')
+            for (const element of elements) {
+                element.style.transform = 'rotate(360deg) scale(1.2)';
+                setTimeout(function () {
+                    element.style.transform = 'none';
+                }, 300);
+            }
+        }
+    });
+</script>

@@ -1,13 +1,21 @@
-
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.utils import timezone
-from django.utils.safestring import mark_safe
 
 
 class User(AbstractUser):
     def __str__(self):
         return f'{self.username}, {self.email}'
+
+
+class CompanyData(models.Model):
+    name = models.CharField(max_length=30)
+    value = models.CharField(max_length=250)
+
+    class Meta:
+        ordering = ('name',)
+        verbose_name = 'Данные компании'
+        verbose_name_plural = 'Данные компании'
 
 
 class Promo(models.Model):
@@ -20,6 +28,10 @@ class Promo(models.Model):
 
     date_created = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        ordering = ('date_published',)
+        verbose_name = 'Акция'
+        verbose_name_plural = 'Акции'
 
 
 class UnconfirmedUser(models.Model):

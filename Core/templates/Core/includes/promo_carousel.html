@@ -16,11 +16,11 @@
             >
                 <img src="{{ promo.image.url }}" class="w-100 " alt="...">
                 <div type="button"
-                     class="carousel-caption"
+                     class="carousel-caption h-100"
                      data-bs-toggle="modal"
                      data-bs-target="#promo-modal-{{ promo.id }}">
-                    <div class="flex-col-center">
-                        <h2 class="fs-x6 text-white-90 mb-2">{{ promo.title }}</h2>
+                    <div class="flex-col-end h-100 justify-content-md-center">
+                        <h2 class="fs-x6 text-white mb-2 text-shadow-0-0-0-06" >{{ promo.title }}</h2>
                         <p class="fs-4 d-none d-md-block">{{ promo.desc|truncatewords:20 }}</p>
                     </div>
                 </div>
@@ -46,8 +46,8 @@
         modal-dialog-centered
         modal-dialog-scrollable
         w-100 mx-auto p-0">
-            <div class="modal-content">
-                <div class="modal-body p-0 position-relative">
+            <div class="modal-content border-0">
+                <div class="modal-body h-100 p-0 overflow-y-hidden position-relative">
                     <img class="mb-3 w-100" src="{{ promo.image.url }}" alt="">
                     <div class="promo-modal-title flex-col-center">
                         <h3 class="fs-2 text-white-90"><span>{{ promo.title }}</span></h3>

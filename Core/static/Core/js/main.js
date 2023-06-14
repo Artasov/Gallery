@@ -7,6 +7,7 @@ function getCookie(name) {
 window.onload = function (e) {
     document.getElementById('loading_spinner_block').remove();
     document.getElementById('content').classList.remove('d-none');
+    document.getElementsByTagName('footer')[0].classList.remove('d-none');
 }
 
 function addToFavorites(item) {

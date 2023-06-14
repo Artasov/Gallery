@@ -55,7 +55,9 @@
 </head>
 <body class="">
 <div class="wrapper flex-col overflow-hidden">
-    {% include 'Core/includes/header.html' %}
+    {% if no_header %}{% else %}
+        {% include 'Core/includes/header.html' %}
+    {% endif %}
     <main class="overflow-y-scroll overflow-x-hidden flex-col flex-grow-1 no_scrollbar">
         <div id="loading_spinner_block">
             <div id="loading_spinner_block-help">

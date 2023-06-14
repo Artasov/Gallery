@@ -1,13 +1,17 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 
-from Core.models import User, Promo
+from Core.models import User, Promo, CompanyData
 
 
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
     list_display = ['username']
 
+@admin.register(CompanyData)
+class CompanyDataAdmin(admin.ModelAdmin):
+    list_display = ['name', 'value']
+    list_editable = ['value']
 
 @admin.register(Promo)
 class PromoAdmin(admin.ModelAdmin):

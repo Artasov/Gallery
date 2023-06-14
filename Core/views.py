@@ -19,12 +19,8 @@ def main(request):
         date_published__lte=now,
         date_expired__gte=now,
     )
-    new_products = Product.objects.filter(available=True).order_by('-created_at').all()[:25]
-    hit_products = Product.objects.filter(available=True).order_by('-rating').all()[:25]
     return render(request, 'Core/main.html', {
         'promos': promos,
-        'hit_products': hit_products,
-        'new_products': new_products
     })
 
 

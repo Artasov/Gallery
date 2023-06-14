@@ -1,6 +1,7 @@
 {% extends 'Core/base.html' %}
 {% load static %}
 {% load APP_shop_tags %}
+{% load Core_tags %}
 {% block title %}Галерея | Контакты{% endblock %}
 
 {% block link_content_css %}{% endblock %}
@@ -11,18 +12,19 @@
     <div id="content" class="container overflow-y-hidden d-none flex-col
     flex-grow-1" style="max-width: 600px;">
 
-        <div class="flex-col mt-5 px-3">
+        <div class="flex-col-center mt-5 px-3 gap-3">
             <h1 class="fs-1 text-center fw-6 pb-3">Контакты</h1>
-
-            <p class="fw-6 fs-5">Телефон: <span class="fw-5">+x-xxx-xxx-xx-xx</span></p>
-            <p class="fw-6 fs-5">Почта: <span class="fw-5">xxx@x.xx</span></p>
+            <p class="fw-6 fs-5">Телефон: <span class="fw-5">{% get_company_data "phone" %}</span></p>
+            <p class="fw-6 fs-5">Почта: <span class="fw-5">{% get_company_data "email" %}</span></p>
             <p class="fw-6 fs-5">Адреса:</p>
             <ul>
                 <li>Вышний Волочёк<span class="text-black-120 fs-6 fw-4">&nbsp;Казанский просп., 75-77</span></li>
                 <li>Удомля<span class="text-black-120 fs-6 fw-4">&nbsp;просп. Курчатова, 5</span></li>
                 <li>Торжок<span class="text-black-120 fs-6 fw-4">&nbsp;Дзержинского, 78</span></li>
             </ul>
-            <a class="btn-submit w-minc text-nowrap rounded-3 fw-4 fs-5" href="{% url 'addresses' %}">Посмотреть на карте.</a>
+            <a class="btn-submit w-minc text-nowrap rounded-3 fw-4 fs-5" href="{% url 'addresses' %}">
+                Посмотреть на карте</a>
+            {% include 'Core/includes/social_links_list.html' with container_classes='flex-row-center gap-2' %}
 
 
         </div>
