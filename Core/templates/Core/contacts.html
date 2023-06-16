@@ -21,15 +21,19 @@
                 <li>Торжок: {% get_company_data "phone_t" %}</li>
             </ul>
 
-            <p class="fw-6 fs-5">Почта: <span class="fw-5">{% get_company_data "email" %}</span></p>
+            <h2 class="fw-6 fs-5">Почта:</h2>
+            <ul class="ms-4">
+                <li>{% get_company_data "email" %}</li>
+            </ul>
             <p class="fw-6 fs-5">Адреса:</p>
-            <ul>
-                <li>Вышний Волочёк<span class="text-black-120 fs-6 fw-4">&nbsp;Казанский просп., 75-77</span></li>
-                <li>Удомля<span class="text-black-120 fs-6 fw-4">&nbsp;просп. Курчатова, 5</span></li>
-                <li>Торжок<span class="text-black-120 fs-6 fw-4">&nbsp;Дзержинского, 78</span></li>
+            <ul class="ms-4">
+                <li>Вышний Волочёк<span class="text-black-120 fs-6 fw-4 me-1">&nbsp;Казанский пт., 75-77</span></li>
+                <li>Удомля<span class="text-black-120 fs-6 fw-4">&nbsp;пт. Курчатова, 5</span></li>
+                <li>Торжок<span class="text-black-120 fs-6 fw-4">&nbsp;ул. Дзержинского, 78</span></li>
             </ul>
             <a class="btn-submit w-minc text-nowrap rounded-3 fw-4 fs-5" href="{% url 'addresses' %}">
-                Посмотреть на карте</a>
+                Посмотреть на карте
+            </a>
             {% include 'Core/includes/social_links_list.html' with container_classes='flex-row-center gap-2' %}
 
 
