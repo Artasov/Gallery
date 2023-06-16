@@ -12,9 +12,15 @@
     <div id="content" class="container overflow-y-hidden d-none flex-col
     flex-grow-1" style="max-width: 600px;">
 
-        <div class="flex-col-center mt-5 px-3 gap-3">
+        <div class="flex-col-center mt-5 px-3 gap-2">
             <h1 class="fs-1 text-center fw-6 pb-3">Контакты</h1>
-            <p class="fw-6 fs-5">Телефон: <span class="fw-5">{% get_company_data "phone" %}</span></p>
+            <h2 class="fw-6 fs-5">Телефоны:</h2>
+            <ul class="ms-4">
+                <li>Вышний Волочёк: {% get_company_data "phone_vv" %}</li>
+                <li>Удомля: {% get_company_data "phone_u" %}</li>
+                <li>Торжок: {% get_company_data "phone_t" %}</li>
+            </ul>
+
             <p class="fw-6 fs-5">Почта: <span class="fw-5">{% get_company_data "email" %}</span></p>
             <p class="fw-6 fs-5">Адреса:</p>
             <ul>
