@@ -5,6 +5,8 @@ from django.db import models
 from django.utils import timezone
 from django.utils.text import slugify
 
+from Core.utils import is_ascii, utf8_to_ascii
+
 
 class User(AbstractUser):
     def __str__(self):
@@ -25,20 +27,19 @@ class Promo(models.Model):
     title = models.CharField(max_length=250)
     desc = models.TextField()
     image = models.ImageField(upload_to='promos/')
-
+    video = models.FileField(upload_to='promos/videos/', null=True, blank=True)
     date_published = models.DateTimeField(default=timezone.now)
     date_expired = models.DateTimeField(null=True)
 
     date_created = models.DateTimeField(auto_now=True)
 
     def save(self, *args, **kwargs):
-        # Заменяем русские символы в названии файла на транслит
-        if self.image:
-            filename = self.image.name
-            new_filename = slugify(filename)
-            self.image.name = os.path.join('promos/', new_filename)
-
+        if self.image and not is_ascii(self.image.name):
+            self.image.name = os.path.join('promos/', utf8_to_ascii(self.image.name))
+        if self.video and not is_ascii(self.video.name):
+            self.video.name = os.path.join('promos/videos/', utf8_to_ascii(self.video.name))
         super().save(*args, **kwargs)
+
     class Meta:
         ordering = ('date_published',)
         verbose_name = 'Акция'

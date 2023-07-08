@@ -2,22 +2,22 @@
 <link rel="stylesheet" type="text/css" href="{% static 'APP_shop/css/products_x_scroll_bar.css' %}">
 <div class="products-scroll-block mx-auto mt-1 mb-3 px-3 gap-3 d-flex justify-content-between mw-100"
      style="max-width: 900px; height: 120px;">
-    <div class="products-arrow-left flex-col-center"
+    <div class="products-arrow-left fcc"
          style="width: 3rem">
         <i class="fa-solid fa-chevron-left fs-1 text-center"></i>
     </div>
     <div class="overflow-x-hidden h-100 position-relative">
-        <div class="products-menu_wrapper h-100 flex-col-center no_scrollbar overflow-x-scroll overflow-y-hidden">
+        <div class="products-menu_wrapper h-100 fcc no_scrollbar overflow-x-scroll overflow-y-hidden">
             <div class="products_menu h-100 gap-2 flex-grow-1 d-flex p-2">
                 {% for product in products %}
-                    <div class="flex-col-center h-100 disable-tap-and-selection">
+                    <div class="fcc h-100 disable-tap-and-selection">
                         <div class="products_menu-item h-100 mh-100
-                   flex-col-center gap-1 pb-2 pb-sm-3 pt-1 pt-sm-2 rounded-4 px-2"
+                   fcc gap-1 pb-2 pb-sm-3 pt-1 pt-sm-2 rounded-4 px-2"
                              value="">
                             <div type="button"
                                  data-bs-toggle="modal"
                                  data-bs-target="#product-modal-{{ product.id }}"
-                                 class="products_menu-item-img-block h-100 flex-row-center pt-1">
+                                 class="products_menu-item-img-block h-100 frc pt-1">
                                 <img class="h-100 rounded-4 mx-auto
                                 disable-tap-and-selection"
                                      src="{{ product.image.url }}"
@@ -30,7 +30,7 @@
         </div>
         <div class="products-menu-bg_shadows"></div>
     </div>
-    <div class="flex-col-center products-arrow-right"
+    <div class="fcc products-arrow-right"
          style="width: 3rem;">
         <i class="fa-solid fa-chevron-right fs-1 text-center"></i>
     </div>

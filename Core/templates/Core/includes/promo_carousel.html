@@ -14,8 +14,15 @@
                  promo-carousel-item
                  {% if forloop.counter == 1 %}active{% endif %}"
             >
-                <img src="{{ promo.image.url }}" class="w-100 " alt="...">
-                <div type="button"
+                {% if promo.video %}
+                    <div class="frc h-100">
+                        <video loop autoplay muted src="{{ promo.video.url }}"
+                               id="promo-video-{{ promo.id }}"
+                               class="rounded-5"></video>
+                    </div>
+                {% else %}
+                    <img src="{{ promo.image.url }}" class="w-100 " alt="...">
+                    <div type="button"
                      class="carousel-caption h-100"
                      data-bs-toggle="modal"
                      data-bs-target="#promo-modal-{{ promo.id }}">
@@ -30,6 +37,8 @@
                         </div>
                     </div>
                 </div>
+                {% endif %}
+
 
 
             </div>

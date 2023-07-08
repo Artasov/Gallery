@@ -7,7 +7,7 @@
 <body>
 <form action="{% url 'shop:upload_products' %}"
       method="post" enctype="multipart/form-data"
-      class="flex-col-center">{% csrf_token %}
+      class="fcc">{% csrf_token %}
     {% if invalid %}<span>{{ invalid }}</span>{% endif %}
     <input type="file" name="xlsfile" accept=".xls,.xlsx" required>
     <label>
