@@ -35,9 +35,9 @@ class Promo(models.Model):
 
     def save(self, *args, **kwargs):
         if self.image and not is_ascii(self.image.name):
-            self.image.name = os.path.join('promos/', utf8_to_ascii(self.image.name))
+            self.image.name = utf8_to_ascii(self.image.name)
         if self.video and not is_ascii(self.video.name):
-            self.video.name = os.path.join('promos/videos/', utf8_to_ascii(self.video.name))
+            self.video.name = utf8_to_ascii(self.video.name)
         super().save(*args, **kwargs)
 
     class Meta:
